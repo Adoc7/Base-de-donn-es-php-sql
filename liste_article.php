@@ -20,14 +20,12 @@
     <nav>
     <ul>
       <li><a href="index.html">Ajouter un article</a></li>
-      <li><a href="liste_article.php">Liste des articles</a></li>
+      <li><a href="suppr_article.php">supprimer des articles</a></li>
     </ul>
   </nav>
-
   </header>
-<!-- <section>
-    <h1>Liste des articles</h1>
-</section> -->
+
+<section>
 
 
   <?php
@@ -36,14 +34,14 @@
   $reponse = $pdo->query('SELECT * FROM articles');
   $reponse1 = $reponse->fetchAll();
 
-  foreach ($reponse1 as $value) {
-  //   $prixtotal = $value->Pizza1*12 + $value->Pizza2*10 + $value->Pizza3*9 + $value->Pizza4*11 + $value->Pizza5*9 + $value->Pizza6*8;
-      echo '<p>Article ecrit le : '.$value->date.'</p>
-      <p>Titre : '.$value->title.'</p>
-      <img src=./upload/' .$value->image.'>
-      <p> Article : '.$value->article_content . '</p>
-      <hr>';
-  }
+  foreach ($reponse1 as $value)
+      {
+      echo '<p> Posté le : '.$value->date.'</p>';
+      echo '<p> Titre:'.$value->title.'</p><br>';
+      echo '<img src=./upload/'.$value->image.'>';
+      echo '<p>'.$value->article_content.'</p><a  href="suppr.php?var_article='.$value->article.'">supprimer</a>';
+      }
   ?>
+  </section>
 </body>
 </html>

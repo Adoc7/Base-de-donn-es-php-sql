@@ -47,5 +47,4 @@ $req->execute();
   // ));
 
 
-
 header('Location: liste_article.php');
